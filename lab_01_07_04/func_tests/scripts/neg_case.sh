@@ -1,7 +1,7 @@
 #!/bin/bash
 
 in_file=$1
-prog="../../app.exe"
+prog="./app.exe"
 
 rm tmp -f
 touch tmp

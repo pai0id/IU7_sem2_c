@@ -19,7 +19,7 @@
 void dec_to_bin_n_print(uint32_t x)
 {
     size_t nbits = sizeof(x) * CHAR_BIT;
-    uint32_t mask = 1 << (nbits - 1);
+    uint32_t mask = (uint32_t)1 << (nbits - 1);
     for (size_t i = 0; i < nbits; ++i)
     {
         if (x & mask)
@@ -37,14 +37,12 @@ void dec_to_bin_n_print(uint32_t x)
  */
 void move(uint32_t *a, int n)
 {
-    int nbits = sizeof(a) * CHAR_BIT;
-    int mask = 1;
+    uint32_t nbits = sizeof(*a) * CHAR_BIT;
+    uint32_t mask = 1;
     uint32_t num = *a;
     n %= nbits;
     for (int i = 0; i < n; ++i)
-    {
         num = (num >> 1) | ((num & mask) << (nbits - 1));
-    }
     *a = num;
 }
 

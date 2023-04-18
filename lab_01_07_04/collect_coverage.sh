@@ -1,10 +1,6 @@
 #!/bin/bash
 
-./build_debug_gcov.sh
-
-cd ./func_tests/scripts/ || exit 1
-./func_tests.sh
-cd ../../
+./func_tests/scripts/func_tests_silent.sh
 
 echo
 echo "Result:"
