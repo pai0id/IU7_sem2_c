@@ -21,19 +21,6 @@ int main(void)
         analyze_matr(matr, a_n, a_m, res);
         print_arr(res, a_m);
     }
-    switch (rc)
-    {
-        case OK:
-            break;
-        case ERR_IO:
-            printf("Input error\n");
-            break;
-        case ERR_SIZE:
-            printf("Incorrect size\n");
-            break;
-        default:
-            printf("Unknown error\n");
-            break;
-    }
+    print_err(rc);
     return rc;
 }

@@ -21,6 +21,21 @@ int calc_sum(const int arr[], size_t size)
     return res;
 }
 
+int needs_swap(int arr_one[], int arr_two[], size_t size)
+{
+    /// Меняем местами, если первый отличающийся элемент
+    /// текущей строки больше следующей и обозначаем,
+    /// что массив бы изменен
+    for (size_t k = 0; k < size; ++k)
+    {
+        if (arr_one[k] < arr_two[k])
+            return 0;
+        else if (arr_one[k] > arr_two[k])
+            return 1;
+    }
+    return 0;
+}
+
 void sort(int arr[][M], size_t a_n, size_t a_m)
 {
     /// Переменная для отслеживания,
@@ -48,19 +63,10 @@ void sort(int arr[][M], size_t a_n, size_t a_m)
             /// Если суммы равны
             else if (sum1 == sum2)
             {
-                /// Меняем местами, если первый отличающийся элемент
-                /// текущей строки больше следующей и обозначаем,
-                /// что массив бы изменен
-                for (size_t k = 0; k < a_m; ++k)
+                if (needs_swap(arr[j], arr[j + 1], a_m))
                 {
-                    if (arr[j][k] < arr[j + 1][k])
-                        break;
-                    else if (arr[j][k] > arr[j + 1][k])
-                    {
-                        swap_arr(arr[j], arr[j + 1], a_m);
-                        flag = 1;
-                        break;
-                    }
+                    swap_arr(arr[j], arr[j + 1], a_m);
+                    flag = 1;
                 }
             }
         }

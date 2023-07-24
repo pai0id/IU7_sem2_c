@@ -16,7 +16,14 @@ int main(void)
     size_t a_n, a_m;
     short num;
     int rc = OK;
-    rc = input_matr(matr, &a_n, &a_m, &num);
+    rc = input_matr(matr, &a_n, &a_m);
+    if (!rc)
+    {
+        /// Ввод цифры для анализа строк
+        printf("Input num: ");
+        if (scanf("%hd", &num) != 1 || num < 0 || num > 9)
+            rc = ERR_IO;
+    }
     if (!rc)
     {
         browse_lines(matr, &a_n, a_m, num);

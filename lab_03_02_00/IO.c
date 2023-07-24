@@ -2,7 +2,7 @@
 #include "sizes.h"
 #include "IO.h"
  
-int input_matr(int arr[][M], size_t *a_n, size_t *a_m, short *num)
+int input_matr(int arr[][M], size_t *a_n, size_t *a_m)
 {
     printf("Input n, m: ");
     if (scanf("%zu %zu", a_n, a_m) != 2)
@@ -13,9 +13,6 @@ int input_matr(int arr[][M], size_t *a_n, size_t *a_m, short *num)
         for (size_t j = 0; j < *a_m ; ++j)
             if (scanf("%d", &arr[i][j]) != 1)
                 return ERR_IO;
-    printf("Input num: ");
-    if (scanf("%hd", num) != 1 || *num < 0 || *num > 9)
-        return ERR_IO;
     return OK;
 }
 

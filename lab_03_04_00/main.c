@@ -16,12 +16,12 @@ int main(void)
     int res;
     int rc = OK;
     rc = input_matr(matr, &a_n, &a_m);
+    if (!rc && a_m != a_n)
+        rc = ERR_NOT_KV;
     if (!rc)
-    {
         rc = find_num(matr, a_n, &res);
-        if (!rc)
-            printf("%d", res);
-    }
+    if (!rc)
+        printf("%d", res);
     switch (rc)
     {
         case OK:

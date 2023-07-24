@@ -3,17 +3,16 @@
 
 int is_descending(int arr[][M], size_t a_n, size_t i_column)
 {
-    int diff = 0;
+    // Если столбец состоит из одного элемента, он не упорядочен ли по убыванию
+    if (a_n == 1)
+        return 0;
+    // Прохожусь по элементам столбца
     for (int (*p)[M] = arr; p < arr + a_n - 1; ++p)
-    {
+        // Если следующий элемент не строго убывающий, столбец не подходит
         if ((*(p + 1))[i_column] >= (*p)[i_column])
             return 0;
-        if ((*(p + 1))[i_column] != (*p)[i_column])
-            diff = 1;
-    }
-    if (diff)
-        return 1;
-    return 0;
+    // Столбец прошел проверку
+    return 1;
 }
 
 void analyze_matr(int arr[][M], size_t a_n, size_t a_m, int res_arr[])

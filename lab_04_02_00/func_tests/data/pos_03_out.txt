@@ -1,0 +1,5 @@
+Result:
+abc 3
+def 2
+fgn 1
+ghl 1
